@@ -7,7 +7,8 @@ namespace Facade.Services
     {
         public VideoFile Convert(VideoFile file, Codec codec)
         {
-            return new VideoFile(file.Name);
+            return new VideoFile(file.Name,
+                codec.GetType().Name == "MPEG4Codec" ? "mpeg4" : "ogg");
         }
     }
 }

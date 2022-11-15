@@ -1,5 +1,5 @@
-﻿
-using Facade.Classes;
+﻿using Facade.Classes;
+using Facade.Constants;
 using Facade.Services;
 
 namespace Facade
@@ -10,11 +10,12 @@ namespace Facade
         {
             var videoConverter = new VideoConverter();
             var simpleConverter = new SimpleConverter(videoConverter);
-            var videoFile = new VideoFile("VideoName.ogg");
+            var videoFile = new VideoFile("VideoName", Codecs.OGG);
 
-            var result = simpleConverter.Convert(videoFile, "MPEG4");
+            var result = simpleConverter.Convert(videoFile, Codecs.MP4);
+
+            Console.WriteLine(result.GetName());
         }
     }
-
 }
 

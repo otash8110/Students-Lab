@@ -14,6 +14,5 @@ namespace Adapter
             adapter.GetResult(library.GetBooksXML());
         }
     }
-
 }
 

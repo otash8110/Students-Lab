@@ -15,17 +15,9 @@ namespace Facade
 
         public VideoFile Convert(VideoFile file, string format)
         {
-            Codec destinactionCodec;
+            Codec destinationCodec = format == "mpeg4" ? new MPEG4Codec() : new OGGCodec();
 
-            if (format == "MPEG4")
-            {
-                destinactionCodec = new MPEG4Codec();
-            } else
-            {
-                destinactionCodec= new OGGCodec();
-            }
-
-            return _videoConverter.Convert(file, destinactionCodec);
+            return _videoConverter.Convert(file, destinationCodec);
         }
     }
 }

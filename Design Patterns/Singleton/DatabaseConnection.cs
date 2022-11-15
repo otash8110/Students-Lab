@@ -1,17 +1,15 @@
 ﻿namespace Singleton
 {
-    public class DatabaseConnection
+    public sealed class DatabaseConnection
     {
-        private static DatabaseConnection _dbInstance;
+        private static readonly DatabaseConnection _dbInstance = new DatabaseConnection();
+
+        static DatabaseConnection() { }
 
         private DatabaseConnection() { }
 
         public static DatabaseConnection OpenConnection()
         {
-            if (_dbInstance == null)
-            {
-                _dbInstance = new DatabaseConnection();
-            }
             return _dbInstance;
         }
 
@@ -20,9 +18,6 @@
             return null;
         }
 
-        public void CloseConnection()
-        {
-            return;
-        }
+        public void CloseConnection() { }
     }
 }

@@ -1,6 +1,4 @@
-﻿using Proxy.Classes;
-
-namespace Proxy
+﻿namespace Proxy
 {
     public interface IYesterdayRate
     {

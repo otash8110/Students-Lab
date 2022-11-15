@@ -1,6 +1,4 @@
-﻿using Proxy.Classes;
-
-namespace Proxy
+﻿namespace Proxy
 {
     public class ProxyYesterdayRate : IYesterdayRate
     {
@@ -28,14 +26,7 @@ namespace Proxy
 
         private bool CheckCache()
         {
-            if (_rate != null && _rate.RateDate != DateTime.Today.AddDays(-1))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _rate != null && _rate.Date != DateTime.Today.AddDays(-1);
         }
     }
 }
