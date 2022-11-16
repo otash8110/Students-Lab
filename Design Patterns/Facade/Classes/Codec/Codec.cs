@@ -2,5 +2,6 @@
 {
     public class Codec
     {
+        public virtual string Name { get; }
     }
 }

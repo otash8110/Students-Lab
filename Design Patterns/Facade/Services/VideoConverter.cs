@@ -1,5 +1,6 @@
 ﻿using Facade.Classes;
 using Facade.Classes.Codec;
+using Facade.Constants;
 
 namespace Facade.Services
 {
@@ -8,7 +9,7 @@ namespace Facade.Services
         public VideoFile Convert(VideoFile file, Codec codec)
         {
             return new VideoFile(file.Name,
-                codec.GetType().Name == "MPEG4Codec" ? "mpeg4" : "ogg");
+                codec.Name == Codecs.MP4 ? Codecs.MP4 : Codecs.OGG);
         }
     }
 }

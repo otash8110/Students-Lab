@@ -1,8 +1,8 @@
 ﻿using AbstractFactory.Interfaces;
 
-namespace AbstractFactory.Classes.ExtraParts
+namespace AbstractFactory.Parts.ExtraParts
 {
-    public class ExtraWheel : IAbstractWheel
+    public class ExtraWheel : IWheel
     {
         public int WheelDiameter => 18;
     }

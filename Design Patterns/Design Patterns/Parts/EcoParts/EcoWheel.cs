@@ -1,8 +1,8 @@
 ﻿using AbstractFactory.Interfaces;
 
-namespace AbstractFactory.Classes.EcoParts
+namespace AbstractFactory.Parts.EcoParts
 {
-    public class EcoWheel : IAbstractWheel
+    public class EcoWheel : IWheel
     {
         public int WheelDiameter => 14;
     }

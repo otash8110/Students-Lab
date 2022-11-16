@@ -1,5 +1,6 @@
 ﻿using Facade.Classes;
 using Facade.Classes.Codec;
+using Facade.Constants;
 using Facade.Services;
 
 namespace Facade
@@ -15,7 +16,7 @@ namespace Facade
 
         public VideoFile Convert(VideoFile file, string format)
         {
-            Codec destinationCodec = format == "mpeg4" ? new MPEG4Codec() : new OGGCodec();
+            Codec destinationCodec = format == Codecs.MP4 ? new MPEG4Codec() : new OGGCodec();
 
             return _videoConverter.Convert(file, destinationCodec);
         }

@@ -1,9 +1,10 @@
-﻿using Adapter.Classes;
+﻿using System.Text.Json;
+using System.Xml;
 
 namespace Adapter
 {
     public interface IAdapter
     {
-        JSON GetResult(XML book);
+        JsonDocument GetResult(XmlDocument book);
     }
 }

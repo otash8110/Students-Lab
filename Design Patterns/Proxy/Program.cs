@@ -12,7 +12,6 @@
             proxyYesterdayRate.GetRate();
             Thread.Sleep(7000);
             proxyYesterdayRate.GetRate();
-
         }
     }
 }

@@ -1,20 +1,28 @@
-﻿using Adapter.Classes;
-using Adapter.Services;
+﻿using Adapter.Services;
+using System.Text.Json;
+using System.Xml;
 
 namespace Adapter
 {
     public class Adapter : IAdapter
     {
-        private readonly BooksAnalyzer _analyzer;
+        private readonly BooksAnalyzer analyzer;
 
         public Adapter(BooksAnalyzer analyzer)
         {
-            this._analyzer = analyzer;
+            this.analyzer = analyzer;
         }
 
-        public JSON GetResult(XML book)
+        public JsonDocument GetResult(XmlDocument books)
         {
-            return this._analyzer.GetOldestBook(book);
+            var jsonBooks = XmlToJson(books);
+            return this.analyzer.GetOldestBook(jsonBooks);
+        }
+
+        private JsonDocument XmlToJson(XmlDocument document)
+        {
+            var convertedString = Newtonsoft.Json.JsonConvert.SerializeXmlNode(document, Newtonsoft.Json.Formatting.None, true);
+            return JsonDocument.Parse(convertedString);
         }
     }
 }

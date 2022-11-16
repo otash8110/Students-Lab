@@ -1,8 +1,8 @@
 ﻿using AbstractFactory.Interfaces;
 
-namespace AbstractFactory.Classes.EcoParts
+namespace AbstractFactory.Parts.EcoParts
 {
-    public class EcoEngine : IAbstractEngine
+    public class EcoEngine : IEngine
     {
         public int HorsePower => 70;
     }

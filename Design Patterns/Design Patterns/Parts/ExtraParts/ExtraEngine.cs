@@ -1,8 +1,8 @@
 ﻿using AbstractFactory.Interfaces;
 
-namespace AbstractFactory.Classes.ExtraParts
+namespace AbstractFactory.Parts.ExtraParts
 {
-    public class ExtraEngine : IAbstractEngine
+    public class ExtraEngine : IEngine
     {
         public int HorsePower => 220;
     }

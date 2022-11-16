@@ -2,15 +2,17 @@
 {
     public sealed class DatabaseConnection
     {
-        private static readonly DatabaseConnection _dbInstance = new DatabaseConnection();
+        private static readonly DatabaseConnection dbInstance = new DatabaseConnection();
+        private static string privateConnectionString;
 
         static DatabaseConnection() { }
 
         private DatabaseConnection() { }
 
-        public static DatabaseConnection OpenConnection()
+        public static DatabaseConnection OpenConnection(string connectionString)
         {
-            return _dbInstance;
+            privateConnectionString = connectionString;
+            return dbInstance;
         }
 
         public string ExecuteQuery(string query)

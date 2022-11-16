@@ -1,13 +1,18 @@
-﻿using Adapter.Classes;
+﻿using Adapter.Models;
+using System.Text.Json;
 
 namespace Adapter.Services
 {
     public class BooksAnalyzer
     {
-        public JSON GetOldestBook(XML book)
+        public JsonDocument GetOldestBook(JsonDocument books)
         {
-            // some business logic
-            return new JSON();
+            Books booksObject = JsonSerializer.Deserialize<Books>(books);
+
+            var oldestBook = booksObject.Book.OrderBy(book => book.Date).FirstOrDefault();
+            var convertedOldestBook = JsonSerializer.Serialize(oldestBook);
+
+            return JsonDocument.Parse(convertedOldestBook);
         }
     }
 }

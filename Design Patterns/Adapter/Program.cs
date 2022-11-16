@@ -1,4 +1,5 @@
 ﻿using Adapter.Services;
+using System.Text.Json;
 
 namespace Adapter
 {
@@ -11,7 +12,9 @@ namespace Adapter
 
             IAdapter adapter = new Adapter(analyzer);
 
-            adapter.GetResult(library.GetBooksXML());
+            var result = adapter.GetResult(library.GetBooksXML());
+
+            Console.Write(JsonSerializer.Serialize(result));
         }
     }
 }
