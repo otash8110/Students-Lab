@@ -20,9 +20,13 @@ namespace AbstractFactory
 
         private static IAbstractPartsFactory GetFactory(CarConfiguration carConfig)
         {
-            if (carConfig == CarConfiguration.Economy) return new AbstractEcoFactory();
-            else if (carConfig == CarConfiguration.Extra) return new AbstractExtraFactory();
-            else return new AbstractStandardFactory();
+            return carConfig switch
+            {
+                CarConfiguration.Economy => new AbstractEcoFactory(),
+                CarConfiguration.Extra => new AbstractExtraFactory(),
+                CarConfiguration.Standard => new AbstractStandardFactory(),
+                _ => throw new ArgumentOutOfRangeException(nameof(carConfig), carConfig, null)
+            };
         }
     }
 }
